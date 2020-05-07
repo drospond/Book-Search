@@ -19,6 +19,8 @@ app.get("/api/config", (req, res) => {
 
 app.use(express.static("client/build"));
 
+
+require("./routes/book-routes.js")(app);
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "/client/build/index.html"));
 });
