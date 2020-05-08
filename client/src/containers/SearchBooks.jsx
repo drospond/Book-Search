@@ -4,7 +4,8 @@ import axios from "axios";
 
 class SearchBooks extends Component {
     state={
-        query: ""
+        query: "",
+        books: []
     }
 
     handleInputChange = (event) => {
@@ -16,13 +17,15 @@ class SearchBooks extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        axios.get("/api/searchBooks",{query: this.state.query}).then(res=>console.log(res.data))
+        console.log(this.state.query);
+        axios.post("/api/searchBooks",{query: this.state.query}).then(res=>console.log(res.data))
     }
 
     render() {
         return (
             <div className="container">
                 <SearchForm handleInputChange={this.handleInputChange} handleSubmit={this.handleSubmit}/>
+
             </div>
         );
     }
