@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchForm from '../components/SearchForm';
+import axios from "axios";
 
 class SearchBooks extends Component {
     state={
@@ -15,8 +16,7 @@ class SearchBooks extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        //API.search(this.state.query).then(res=>console.log(res.data));
-        console.log(process.env.API_KEY);
+        axios.get("/api/searchBooks",{query: this.state.query}).then(res=>console.log(res.data))
     }
 
     render() {

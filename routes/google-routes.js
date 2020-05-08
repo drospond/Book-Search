@@ -5,7 +5,7 @@ module.exports = function (app) {
   app.get("/api/searchBooks", (req, res) => {
     axios
       .get(`${BASEURL}${req.body.query}&key=${APIKEY}`)
-      .then((books) => res.json(books.data))
+      .then((books) => res.json(books.data.items))
       .catch(er=>console.log(er));
   });
 };
