@@ -1,15 +1,31 @@
 import React from 'react';
 
-const book = ({title, authors, description, image, link}) => {
+const Book = ({ title, authors, description, image, link }) => {
+const styles={
+    card:{
+        marginTop: "auto",
+        marginBottom: "auto"
+    }
+}
+
     return (
-        <div>
-            <h3>{title}</h3>
-            <h4>{authors}</h4>
-            <p>{description}</p>
-            <image src={image}/>
-            <a href={link}>More Info</a>
+        <div className="card container">
+            <div className="row">
+                <div className="col-2" style={styles.card}>
+                    <img src={image} alt={`${title} cover`} />
+                </div>
+                <div className="col">
+                    <div className="card-body">
+                        <h4 className="card-title">{title}</h4>
+                        <h5 className="card-title">{authors}</h5>
+                        <p className="card-text">{description}</p>
+                        <a href={link}><button className="btn-secondary">View</button></a>
+                        <button className="btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
 
-export default book;
+export default Book;
