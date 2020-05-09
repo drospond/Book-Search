@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const bookdb = require("../models/Book");
+const bookdb = require("../models/book");
 
 module.exports = function (app) {
   app.get("/api/books", (req, res) => {
